@@ -29,7 +29,7 @@ func RunCheck(cli acl.CheckServiceClient) (bool, error) {
 func WriteOrg(orgName string, cli acl.WriteServiceClient) error {
 	_, err := cli.TransactRelationTuples(context.Background(), &acl.TransactRelationTuplesRequest{
 		RelationTupleDeltas: []*acl.RelationTupleDelta{
-			&acl.RelationTupleDelta{
+			{
 				Action: acl.RelationTupleDelta_INSERT,
 				RelationTuple: &acl.RelationTuple{
 					Namespace: "organizations",
